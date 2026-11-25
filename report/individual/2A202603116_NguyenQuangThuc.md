@@ -16,8 +16,8 @@ Hai frame đọc kỹ. Ảnh: `t1-<frame>-3d`, `t1-<frame>-top` (ảnh nhìn t�
 
 | Frame | Phía trước xe ở cạnh nào của ảnh nhìn từ trên xuống; +x, +y chỉ về đâu | Mặt đường (phẳng/dốc; thấp hơn LiDAR ~ m) | Vật xa nhất đọc được (~ m) | Loại vật thấy | Vật phía sau / hai bên | Cụm chưa đọc được |
 |---|---|---|---|---|---|---|
-| s01f04 | Mặt đường phẳng; đường nhựa hiện đại, thẳng; hai bên có bồn cây ngăn cách | | | | | |
-| s01f19 | Mặt đường phẳng; đường nhựa hiện đại, thẳng; hai bên có bồn cây ngăn cách | | | | | |
+| s01f04 | Phía trước/−y ở cạnh trên; +x sang trái; +y xuống dưới | Mặt đường phẳng; đường nhựa hiện đại, thẳng; hai bên có bồn cây ngăn cách | khoảng 28.0 m | 6 Car, 2 Truck | Có xe ở phía sau và hai bên đường | Không có cụm chưa đọc được rõ; vùng xa có điểm thưa |
+| s01f19 | Phía trước/−y ở cạnh trên; +x sang trái; +y xuống dưới | Mặt đường phẳng; đường nhựa hiện đại, thẳng; hai bên có bồn cây ngăn cách | khoảng 23.5 m | 4 Car, 1 Bus | Có xe ở phía sau và hai bên đường | Không có cụm chưa đọc được rõ; vùng xa có điểm thưa |
 
 Camera cho biết: (1) màu sắc, (2) ước lượng khoảng cách, (3) bối cảnh xung quanh. LiDAR cho biết: (1) khoảng cách chính xác, (2) kích thước vật. Không ghi nhận thêm đặc điểm thứ ba chỉ thuộc về LiDAR trong hai frame đã đọc kỹ.
 
@@ -25,15 +25,14 @@ Tám frame lướt:
 
 | Frame | Phía trước ở cạnh nào của ảnh nhìn từ trên xuống | Điều lạ (nếu có) |
 |---|---|---|
-| s01f19 | Chưa ghi chép riêng | Không ghi nhận điều lạ đặc biệt |
-| s02f08 | Chưa ghi chép riêng | Không ghi nhận điều lạ đặc biệt |
-| s02f41 | Chưa ghi chép riêng | Không ghi nhận điều lạ đặc biệt |
-| s03f01 | Chưa ghi chép riêng | Không ghi nhận điều lạ đặc biệt |
-| s03f33 | Chưa ghi chép riêng | Không ghi nhận điều lạ đặc biệt |
-| s04f02 | Chưa ghi chép riêng | Không ghi nhận điều lạ đặc biệt |
-| s04f17 | Chưa ghi chép riêng | Không ghi nhận điều lạ đặc biệt |
-| s05f13 | Chưa ghi chép riêng | Không ghi nhận điều lạ đặc biệt |
-| s05f46 | Chưa ghi chép riêng | Không ghi nhận điều lạ đặc biệt |
+| s02f08 | Phía trước/−y ở cạnh trên; +x sang trái; +y xuống dưới | Không ghi nhận điều lạ đặc biệt |
+| s02f41 | Phía trước/−y ở cạnh trên; +x sang trái; +y xuống dưới | Không ghi nhận điều lạ đặc biệt |
+| s03f01 | Phía trước/−y ở cạnh trên; +x sang trái; +y xuống dưới | Không ghi nhận điều lạ đặc biệt |
+| s03f33 | Phía trước/−y ở cạnh trên; +x sang trái; +y xuống dưới | Không ghi nhận điều lạ đặc biệt |
+| s04f02 | Phía trước/−y ở cạnh trên; +x sang trái; +y xuống dưới | Không ghi nhận điều lạ đặc biệt |
+| s04f17 | Phía trước/−y ở cạnh trên; +x sang trái; +y xuống dưới | Không ghi nhận điều lạ đặc biệt |
+| s05f13 | Phía trước/−y ở cạnh trên; +x sang trái; +y xuống dưới | Không ghi nhận điều lạ đặc biệt |
+| s05f46 | Phía trước/−y ở cạnh trên; +x sang trái; +y xuống dưới | Không ghi nhận điều lạ đặc biệt |
 
 ## 3. Ba cuboid có hướng dẫn (Bước 3)
 Ảnh: `t2-a-car`, `t2-b-bus-truck`, `t2-c-ped-cyclist`.
@@ -74,7 +73,7 @@ Lấy từ `submission/D13-<MÃ SỐ>-bangA.csv`; số điểm lấy từ cột 
 
 So với bảng 4.3: Cyclist nằm trong khoảng tham chiếu của xe đạp có người ở cả ba chiều. Car phù hợp về chiều dài với nhóm sedan/hatchback; chiều rộng `1.99 m` cao hơn khoảng sedan `1.70–1.90 m`, còn chiều cao `1.39 m` thấp hơn nhẹ khoảng `1.40–1.60 m`. Sai khác có thể do điểm cloud thưa, góc hộp hoặc loại xe thực tế.
 
-(c) `yaw_deg` của một xe cùng chiều phía trước và một xe ngược chiều: **cần anh bổ sung** sau khi đối chiếu Bảng A.
+(c) Xe cùng chiều phía trước: `s01f04`, idx 2, `yaw_deg = 269.3°`. Xe ngược chiều: `s01f04`, idx 4, `yaw_deg = 88.5°`.
 
 Mật độ theo khoảng cách (4 cuboid ở các `dist_m` khác nhau):
 
