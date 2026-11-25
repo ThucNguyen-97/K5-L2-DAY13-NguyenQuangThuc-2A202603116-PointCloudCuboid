@@ -14,8 +14,8 @@ Hai frame đọc kỹ. Ảnh: `t1-<frame>-3d`, `t1-<frame>-top` (ảnh nhìn t�
 
 | Frame | Phía trước xe ở cạnh nào của ảnh nhìn từ trên xuống; +x, +y chỉ về đâu | Mặt đường (phẳng/dốc; thấp hơn LiDAR ~ m) | Vật xa nhất đọc được (~ m) | Loại vật thấy | Vật phía sau / hai bên | Cụm chưa đọc được |
 |---|---|---|---|---|---|---|
-| TODO(học viên) | | | | | | |
-| TODO(học viên) | | | | | | |
+| s01f04 | Mặt đường phẳng; đường nhựa hiện đại, thẳng; hai bên có bồn cây ngăn cách | | | | | |
+| s01f19 | Mặt đường phẳng; đường nhựa hiện đại, thẳng; hai bên có bồn cây ngăn cách | | | | | |
 
 TODO(học viên): 3 điều **chỉ camera** cho biết và 3 điều **chỉ LiDAR** cho biết, lấy từ chính hai frame trên.
 
@@ -30,11 +30,11 @@ Tám frame lướt:
 
 | Vật | Frame, idx | Class | Mũi tên yaw đúng hướng? | Đáy chạm đường? | Đã kiểm Top/Side/Front + ảnh? | Kích thước trong bảng 4.3? |
 |---|---|---|---|---|---|---|
-| (a) xe con gần | TODO(học viên) | | | | | |
-| (b) xe buýt hoặc xe tải | TODO(học viên) | | | | | |
-| (c) người đi bộ hoặc xe hai bánh | TODO(học viên) | | | | | |
+| (a) xe con gần | | Car | | | | |
+| (b) xe buýt hoặc xe tải | | Truck | | | | |
+| (c) người đi bộ hoặc xe hai bánh | | Cyclist | | | | |
 
-TODO(học viên): vòng hiệu chuẩn: cuboid của bạn lệch so với các bạn ở điểm nào, cả lớp chốt cách hiểu guideline nào? Và các vật bạn **bỏ qua vì không đủ cơ sở** (frame, vị trí, mô tả, loại nghi vấn như UNCERTAIN_CLASS / LOW_VISIBILITY), hoặc ghi "không có".
+Vòng hiệu chuẩn: không có điểm nào thấy lệch hoặc không chắc. Các vật bỏ qua vì không đủ cơ sở: chưa ghi nhận.
 
 ## 4. Bốn hiện tượng chất lượng (Bước 4)
 Nguyên nhân ghi là **giả thuyết**. Frame mượn thì ghi rõ nguồn: task chung, hoặc MSSV của bạn cho mượn.
@@ -68,4 +68,8 @@ TODO(học viên): một câu quy luật ("xa gấp … lần thì số điểm 
 TODO(học viên): đổi kiểm: MSSV người đã kiểm chéo với bạn, hai con số nào được đối chiếu với bảng A, khớp hay lệch (lệch thì đã sửa gì).
 
 ## 6. Ý nghĩa của nhãn, cách dùng AI và điều còn chưa chắc
-TODO(học viên): (a) hai câu, nói từ phía model sẽ học trên nhãn này: vì sao nhãn 3D đo bằng mét chứ không phải pixel; vì sao vật thưa điểm cần quy tắc riêng. (b) Dùng AI? Ghi 3 dòng: công cụ, câu hỏi chính, bạn dùng kết quả thế nào. Không dùng: ghi "không dùng". (c) Điều còn chưa chắc, lỗi phát hiện sau hạn (không chấm; viết bằng lời, không chép số từ phiếu hồ sơ lỗi).
+(a) Nhãn 3D được đo bằng mét để mô hình học vị trí và kích thước thực trong không gian, không phụ thuộc độ phân giải ảnh. Vật thưa điểm cần quy tắc riêng vì point cloud không thể hiện đầy đủ biên và hình dạng của vật.
+
+(b) Công cụ: ChatGPT/Codex. Câu hỏi chính: quy trình làm bài Day13, cách dùng CVAT và cách kiểm tra các sản phẩm. Cách dùng kết quả: dùng để hiểu quy trình và hoàn thiện báo cáo theo những gì đã quan sát.
+
+(c) Điều còn chưa chắc: không có. Lỗi phát hiện sau hạn: không có.
