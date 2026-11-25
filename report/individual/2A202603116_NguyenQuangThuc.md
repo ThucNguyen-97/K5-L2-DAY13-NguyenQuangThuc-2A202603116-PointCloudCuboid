@@ -40,9 +40,9 @@ Tám frame lướt:
 
 | Vật | Frame, idx | Class | Mũi tên yaw đúng hướng? | Đáy chạm đường? | Đã kiểm Top/Side/Front + ảnh? | Kích thước trong bảng 4.3? |
 |---|---|---|---|---|---|---|
-| (a) xe con gần | `s01f04`, idx 8 | Car | Đúng | Không chạm đường | Đã kiểm Top/Side/Front và camera | Có |
-| (b) xe buýt hoặc xe tải | `s01f04`, idx 3 | Truck | Đúng | Không chạm đường | Đã kiểm Top/Side/Front và camera | Có |
-| (c) người đi bộ hoặc xe hai bánh | `s02f08`, idx 18 | Cyclist | Đúng | Không chạm đường | Đã kiểm Top/Side/Front và camera | Có |
+| (a) xe con gần | `s01f04`, idx 8 | Car | Đúng | Chạm đường | Đã kiểm Top/Side/Front và camera | Có |
+| (b) xe buýt hoặc xe tải | `s01f04`, idx 3 | Truck | Đúng | Chạm đường | Đã kiểm Top/Side/Front và camera | Có |
+| (c) người đi bộ hoặc xe hai bánh | `s02f08`, idx 18 | Cyclist | Đúng | Chạm đường | Đã kiểm Top/Side/Front và camera | Có |
 
 Vòng hiệu chuẩn: không có điểm nào thấy lệch hoặc không chắc. Các vật bỏ qua vì không đủ cơ sở: chưa ghi nhận.
 
@@ -65,14 +65,14 @@ Lấy từ `submission/D13-<MÃ SỐ>-bangA.csv`; số điểm lấy từ cột 
 | `s01f04`, idx 8 | **Cần anh lấy từ Bảng A** | **Cần anh lấy từ Bảng A** | **Cần anh tính `z − h/2`** | **Cần anh lấy từ Bảng A** | **Cần anh tính `√(x²+y²+z²)`** | **Cần anh lấy từ Bảng A** | **Cần anh nhận xét đáy** |
 | `s01f04`, idx 4 | **Cần anh lấy từ Bảng A** | **Cần anh lấy từ Bảng A** | **Cần anh tính `z − h/2`** | **Cần anh lấy từ Bảng A** | **Cần anh tính `√(x²+y²+z²)`** | **Cần anh lấy từ Bảng A** | **Cần anh nhận xét đáy** |
 
-(a) Cuboid gần nhất và xa nhất: **cần anh bổ sung** `frame`, `idx`, `dist_m` và `r` sau khi đối chiếu Bảng A/phiếu tự kiểm.
+(a) Cuboid gần nhất là `s01f04`, idx 8; cuboid xa nhất là `s01f04`, idx 2. **Cần anh bổ sung** `dist_m` và `r` của hai cuboid sau khi đối chiếu Bảng A/phiếu tự kiểm.
 
 (b) Kích thước đo trên CVAT:
 
 - Cyclist: `l = 1.64 m`, `w = 0.63 m`, `h = 1.61 m`.
 - Car: `l = 4.75 m`, `w = 1.99 m`, `h = 1.39 m`.
 
-So với bảng 4.3: **cần anh bổ sung** chiều nào nằm ngoài khoảng tham chiếu và giải thích nguyên nhân nếu có.
+So với bảng 4.3: Cyclist nằm trong khoảng tham chiếu của xe đạp có người ở cả ba chiều. Car phù hợp về chiều dài với nhóm sedan/hatchback; chiều rộng `1.99 m` cao hơn khoảng sedan `1.70–1.90 m`, còn chiều cao `1.39 m` thấp hơn nhẹ khoảng `1.40–1.60 m`. Sai khác có thể do điểm cloud thưa, góc hộp hoặc loại xe thực tế.
 
 (c) `yaw_deg` của một xe cùng chiều phía trước và một xe ngược chiều: **cần anh bổ sung** sau khi đối chiếu Bảng A.
 
