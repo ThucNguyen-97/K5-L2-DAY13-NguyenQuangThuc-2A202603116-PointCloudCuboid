@@ -61,11 +61,11 @@ Lấy từ `submission/D13-<MÃ SỐ>-bangA.csv`; số điểm lấy từ cột 
 
 | Cuboid (frame, idx, class) | z | h | z đáy = z − h/2 | dist_m | r = √(x²+y²+z²) | yaw_deg | Nhận xét (lơ lửng / chìm / chạm đường) |
 |---|---|---|---|---|---|---|---|
-| `s01f04`, idx 2 | **Cần anh lấy từ Bảng A** | **Cần anh lấy từ Bảng A** | **Cần anh tính `z − h/2`** | **Cần anh lấy từ Bảng A** | **Cần anh tính `√(x²+y²+z²)`** | **Cần anh lấy từ Bảng A** | **Cần anh nhận xét đáy** |
-| `s01f04`, idx 8 | **Cần anh lấy từ Bảng A** | **Cần anh lấy từ Bảng A** | **Cần anh tính `z − h/2`** | **Cần anh lấy từ Bảng A** | **Cần anh tính `√(x²+y²+z²)`** | **Cần anh lấy từ Bảng A** | **Cần anh nhận xét đáy** |
-| `s01f04`, idx 4 | **Cần anh lấy từ Bảng A** | **Cần anh lấy từ Bảng A** | **Cần anh tính `z − h/2`** | **Cần anh lấy từ Bảng A** | **Cần anh tính `√(x²+y²+z²)`** | **Cần anh lấy từ Bảng A** | **Cần anh nhận xét đáy** |
+| `s01f04`, idx 2, Car | -1.044 m | 1.450 m | -1.769 m | 11.63 m | 11.68 m | 269.3° | Chạm đường |
+| `s01f04`, idx 8, Car | -0.602 m | 2.040 m | -1.621 m | 23.30 m | 23.31 m | 269.3° | Chạm đường |
+| `s01f04`, idx 4, Truck | -0.434 m | 2.997 m | -1.933 m | 12.70 m | 12.71 m | 88.5° | Chạm đường |
 
-(a) Cuboid gần nhất là `s01f04`, idx 8; cuboid xa nhất là `s01f04`, idx 2. **Cần anh bổ sung** `dist_m` và `r` của hai cuboid sau khi đối chiếu Bảng A/phiếu tự kiểm.
+(a) Cuboid gần nhất là `s01f04`, idx 2 với `dist_m = 11.63 m`, `r = 11.68 m`; cuboid xa nhất là `s01f04`, idx 8 với `dist_m = 23.30 m`, `r = 23.31 m`.
 
 (b) Kích thước đo trên CVAT:
 
@@ -80,10 +80,10 @@ Mật độ theo khoảng cách (4 cuboid ở các `dist_m` khác nhau):
 
 | Cuboid (frame, idx, class) | dist_m | Số điểm (`points_in`) |
 |---|---|---|
-| `s01f04`, idx 2 | **Cần anh lấy từ phiếu tự kiểm sau khi sync** | **Cần anh lấy từ phiếu tự kiểm sau khi sync** |
-| `s01f04`, idx 8 | **Cần anh lấy từ phiếu tự kiểm sau khi sync** | **Cần anh lấy từ phiếu tự kiểm sau khi sync** |
-| `s01f04`, idx 4 | **Cần anh lấy từ phiếu tự kiểm sau khi sync** | **Cần anh lấy từ phiếu tự kiểm sau khi sync** |
-| `s01f04`, idx 3 | **Cần anh lấy từ phiếu tự kiểm sau khi sync** | **Cần anh lấy từ phiếu tự kiểm sau khi sync** |
+| `s01f04`, idx 2 | 11.63 m | 846 |
+| `s01f04`, idx 8 | 23.30 m | 314 |
+| `s01f04`, idx 4 | 12.70 m | 3227 |
+| `s01f04`, idx 3 | 9.70 m | 1319 |
 
 Nhìn chung, khi khoảng cách từ LiDAR đến vật tăng thì số điểm `points_in` có xu hướng giảm vì cùng một vật chiếm góc nhìn nhỏ hơn và mật độ điểm thưa hơn. Nhận xét này phù hợp với đường cong trong slide: xe con có khoảng 1968 điểm ở 0–10 m, giảm còn khoảng 718 ở 10–20 m, 214 ở 20–30 m, 72 ở 30–40 m và 19 ở 60–80 m. Mức giảm thực tế còn phụ thuộc kích thước vật, bề mặt và hiện tượng che khuất.
 
